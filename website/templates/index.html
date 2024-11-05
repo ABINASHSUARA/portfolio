@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Portfolio</title>
+  <style>
+    :root {
+        --text-color: #1a1c20;
+        --link-color: #4a76ee;
+        --background-color: hwb(63 15% 62% / 0);
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+      }
+      
+      body {
+        font-family: 'Poppins', sans-serif;
+        color: var(--text-color);
+        background-color: var(--background-color);
+        max-width: 1400px;
+        margin: 0 auto;
+      }
+      
+      a {
+        color: var(--link-color);
+        text-decoration: none;
+      }
+      
+      /* NAVBAR */
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      
+        padding: 0 50px;
+        height: 80px;
+      }
+      
+      nav .left a {
+        color: var(--text-color);
+        font-size: 22px;
+        font-weight: 600;
+      }
+      
+      nav .right a {
+        color: var(--text-color);
+        margin: 0 10px;
+      }
+    
+      nav .right a span {
+        margin-left: 5px;
+      }
+      
+      /* SECTION 1: Hero */
+      .hero-section {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 50px;
+        margin: 50px 0;
+        margin-bottom: 100px;
+        gap: 40px;
+      }
+      
+      .hero-section .text {
+        flex: 5;
+      }
+      
+      .hero-section .text h2 {
+        font-size: 45px;
+      }
+      
+      .hero-section .text .links {
+        margin-top: 25px;
+      }
+      
+      .hero-section .text .links a {
+        display: inline-block;
+        padding: 5px 10px;
+        border: 2px solid var(--link-color);
+        border-radius: 5px;
+        margin-right: 10px;
+        margin-bottom: 10px;
+        transition: .1s;
+      }
+      
+      .hero-section .text .links a:hover {
+        color: var(--text-color);
+        border: 2px solid var(--text-color);
+      }
+      
+      .hero-section .headshot {
+        flex: 2;
+        display: flex;
+        justify-content: right;
+      }
+      
+      .hero-section .headshot img {
+        width: 350px;
+        border-radius: 50%;
+      }
+      
+      /* SECTION 2: Skills */
+      .skills-section {
+        padding: 0 50px;
+        margin-bottom: 100px;
+      }
+      
+      .skills-section h2 {
+        text-align: center;
+        font-size: 35px;
+      }
+      
+      .skills-section .text {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+      
+      .skills-section .cells {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      
+      .skills-section .cells .cell {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+      
+        width: 200px;
+        padding: 10px 20px;
+        margin: 10px;
+        border: 1.5px solid #e11717;
+        border-radius: 5px;
+      }
+      
+      .skills-section .cells .cell img {
+        width: 30px;
+        height: 30px;
+        object-fit: contain;
+        border-radius: 2px;
+      }
+      
+      .skills-section .cells .cell span {
+        font-size: 18px;
+      }
+      
+      /* SECTION 3: Testimony */
+      .testimony-section {
+        padding: 0 50px;
+        margin-bottom: 100px;
+      }
+      
+      .testimony-section h2 {
+        font-size: 35px;
+        margin-bottom: 30px;
+      }
+      
+      .testimony-section .group {
+        display: flex;
+        align-items: center;
+        gap: 50px;
+      }
+      
+      .testimony-section .group .person-details {
+        text-align: center;
+        flex: 2;
+      }
+      
+      .testimony-section .group .person-details img {
+        width: 200px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      
+      .testimony-section .group .person-details p {
+        font-weight: 600;
+      }
+      
+      .testimony-section .group .person-details p:last-child {
+        font-weight: normal;
+      }
+      
+      .testimony-section .group .text {
+        flex: 8;
+      }
+      
+      /* SECTION 4: Contact */
+      .contact-section {
+        padding: 0 50px;
+        margin-bottom: 100px;
+      }
+      
+      .contact-section h2 {
+        font-size: 35px;
+      }
+      
+      .contact-section .group {
+        display: flex;
+        gap: 50px;
+      }
+      
+      .contact-section .group .text {
+        flex: 3;
+        margin-top: 20px;
+      }
+      
+      .contact-section .group form {
+        flex: 3;
+        display: flex;
+        flex-direction: column;
+      }
+      
+      .contact-section .group form input,
+      .contact-section .group form textarea {
+        font-family: 'Poppins', sans-serif;
+        border: 2px solid var(--link-color);
+        background-color: transparent;
+        padding: 10px;
+        margin-bottom: 15px;
+        outline: none;
+        resize: none;
+      }
+      
+      .contact-section .group form button {
+        font-size: 16px;
+        font-family: 'Poppins', sans-serif;
+        color: #fff;
+        background-color: var(--link-color);
+        border: none;
+        height: 50px;
+        cursor: pointer;
+        transition: .1s;
+      }
+      
+      .contact-section .group form button:hover {
+        filter: brightness(.9);
+      }
+      
+      @media (max-width: 850px) {
+        /* SECTION 1: Hero */
+        .hero-section .text h2 {
+          font-size: 35px;
+        }
+      }
+      
+      @media (max-width: 740px) {
+        /* SECTION 1: Hero */
+        .hero-section {
+          flex-direction: column-reverse;
+        }
+      
+        .hero-section .headshot img {
+          width: 300px;
+        }
+      
+        /* SECTION 3: Testimony */
+        .testimony-section {
+          text-align: center;
+        }
+      
+        .testimony-section .group {
+          flex-direction: column;
+        }
+      
+        /* SECTION 4: Contact */
+        .contact-section .group {
+          flex-direction: column;
+        }
+      }
+      
+      @media (max-width: 600px) {
+        /* NAVBAR */
+        nav {
+          padding: 0 20px;
+        }
+      
+        nav .right a {
+          font-size: 22px;
+        }
+      
+        nav .right a:last-child {
+          color: var(--text-color);
+          background-color: transparent;
+          padding: 0;
+        }
+      
+        nav .right a span {
+          display: none;
+        }
+      
+        /* SECTION 1: Hero */
+        .hero-section {
+          padding: 0 20px;
+        }
+      
+        .hero-section .text h2 {
+          font-size: 30px;
+        }
+      
+        /* SECTION 2: Skills */
+        .skills-section {
+          padding: 0 20px;
+        }
+      
+        .skills-section .cells .cell span {
+          font-size: 16px;
+        }
+      
+        /* SECTION 3: Testimony */
+        .testimony-section {
+          padding: 0 20px;
+        }
+      
+        /* SECTION 4: Contact */
+        .contact-section {
+          padding: 0 20px;
+        }
+      }
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="left">
+      <a href="/">ABINASH SUARA</a>
+    </div>
+
+    <div class="right">
+      <a href="http://github.com/ABINASHSUARA" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-github"></i>
+        <span>Github</span>
+      </a>
+      
+      <a href="https://www.linkedin.com/in/abinash-suara-20060623b/" target="_blank" rel="noopener noreferrer">
+        <i class="fa-brands fa-linkedin"></i>
+        <span>Linkedin</span>
+      </a>
+      
+      <a href="mailto:abinashsuara2002@gmail.com"  target="_blank" rel="noopener noreferrer">
+        <i class="fa-solid fa-envelope"></i>
+        <span>Email</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- SECTION 1: Hero -->
+    <section class="hero-section">
+      <div class="text">
+        <h2>Hi, I'm Abinash 👋</h2>
+        <h4>Python Full Stack Developer</h4>
+        <p>
+            Welcome to my portfolio! As a Python Full Stack Developer, I am passionate about creating dynamic, user-friendly websites and applications. With expertise in both front-end and back-end development, I combine creativity with technical skills to deliver engaging digital experiences. Below, you'll find an overview of my skills, projects, and experiences.</p>
+
+        <div class="links">
+          <a href="#skills">
+            <i class="fa-solid fa-code"></i>
+            <span>Skills</span>
+          </a>
+          
+          <a href="#testimony">
+            <i class="fa-solid fa-pen"></i>
+            <span>Testimony</span>
+          </a>
+          
+          <a href="#contact">
+            <i class="fa-solid fa-envelope"></i>
+            <span>Contact</span>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- SECTION 2: Skills -->
+    <section id="skills" class="skills-section">
+      <h2>Skills</h2>
+
+      <div class="cells">
+        <div class="cell">
+          <span>HTML</span>
+        </div>
+        
+        <div class="cell">
+          <span>CSS</span>
+        </div>
+        
+        <div class="cell">
+
+          <span>JavaScript</span>
+        </div>
+        
+        <div class="cell">
+        
+          <span>Python</span>
+        </div>
+
+        <div class="cell">
+        
+            <span>Django</span>
+          </div>
+
+          <div class="cell">
+        
+            <span>SQL</span>
+          </div>
+
+          <div class="cell">
+        
+            <span>DevOps</span>
+          </div>
+        
+       
+       
+       
+      </div>
+    </section>
+
+    <!-- SECTION 3: Testimony -->
+    <section id="testimony" class="testimony-section">
+      <h2>Testimony</h2>
+
+      <div class="group">
+       
+
+        <div class="text">
+            <p>My name is Abinash Suara, and I am a passionate and enthusiastic Python Full Stack Developer, eager to make a mark in the tech industry. Having a strong foundation in Python programming, I have built my expertise across both front-end and back-end development, aiming to deliver full-cycle solutions.
+            </p>
+            <p>Throughout my learning journey, I have focused on mastering core web development technologies. On the front end, I have gained proficiency in HTML, CSS, JavaScript, and frameworks such as React, which allow me to create dynamic and responsive user interfaces. On the back end, I have honed my skills in Python with Django, crafting robust, scalable applications that meet modern web standards. I am also comfortable working with databases like PostgreSQL and MySQL to design and manage data effectively.
+            </p>
+            <p>In addition to technical skills, I am dedicated to following best practices such as clean code, modular architecture, and test-driven development (TDD). I strive for a seamless integration between user experience and functionality, making sure that every application I work on is user-friendly, secure, and optimized for performance.
+            </p>
+            <p>During my projects, I have demonstrated the ability to learn quickly and adapt to new challenges. I have worked on projects like student management systems, e-commerce websites, and personal portfolio platforms, implementing real-world solutions using the knowledge I have gained. My experience with Git and version control has helped me collaborate effectively, ensuring smooth and efficient teamwork.
+            </p>
+            <p>As I enter the professional field, I bring my dedication to problem-solving, strong analytical thinking, and a constant desire to grow as a developer. I am excited to contribute to innovative projects, learn from experienced professionals, and continue improving my skills in this ever-evolving domain.
+            </p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECTION 4: Contact -->
+    <section id="contact" class="contact-section">
+      <h2>Contact</h2>
+
+      <div class="group">
+        <div class="text">Thank you for visiting my portfolio! I’m Abinash Suara, a Python Full Stack Developer passionate about creating efficient, scalable, and user-friendly web solutions. Whether you’re looking for a dedicated developer to collaborate on exciting projects, have any inquiries, or simply want to connect, feel free to reach out. I’m always open to new opportunities and conversations.
+            
+        </div>
+
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name">
+
+          <label for="email">Email</label>
+          <input type="email" id="email">
+
+          <label for="message">Message</label>
+          <textarea id="message" cols="30" rows="10"></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
